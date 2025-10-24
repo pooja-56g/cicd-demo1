@@ -9,7 +9,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout code
+      - name: Checkout repository
         uses: actions/checkout@v4
 
       - name: Build stage
@@ -19,4 +19,7 @@ jobs:
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./  # assumes index.html is in repo root
+          publish_branch: gh-pages    # branch to push to
+          publish_dir: ./             # folder to publish
+          user_name: "github-actions"
+          user_email: "github-actions@github.com"
